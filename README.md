@@ -54,33 +54,71 @@ SELECT COUNT(id) FROM train;
 ```
 ###Zadanie 1c
 **Mongo:**
-
-
 Program napisany w JavaScript.
 ```
-var db = db.getSiblingDB('train')
-var cursor = db.train.find()
-while ( cursor.hasNext() ){
-	var object = cursor.next();
-	var tag_array = String(object.Tags).split(" ");
-	db.train.update(object, {$set: {Tags: tag_array}})
-}
-```
-3055322
-Polecenie wykonane w czasie 51m.
-
-
 var db = db.getSiblingDB('train');
-var cursor = db.train.find();
-var tag_count = 0;
-while ( cursor.hasNext() ){
-	tag_count += cursor.next().Tags.length;
-}
+db.train.find().forEach( function (object) {
+  if (!Array.isArray(object.Tags)){
+    object.Tags = String(object.Tags).split(' ');
+    db.train.save(object);
+}});
+```
+Polecenie wykonane w czasie 55m.
 
-Count: 16923038
-Time: 122914ms
-Polecenie wykonane w czasie 2m.
-
+Ilość tagów:
+```
+db.train.aggregate(
+	{ $project: { "Tags":1 } },
+	{ $unwind: "$Tags" },
+	{ $group: { "_id": "result", count: {$sum:1} } }
+)
+17409994
+```
+Ilość unikalnych tagów:
+```
+db.train.distinct("Tags").length
+42048
+```
+10 najczęstszych tagów:
+```
+db.train.aggregate( 
+	{ $project: { "Tags":1 } }, 
+	{ $unwind: "$Tags" }, 
+	{ $group: { _id: "$Tags", count: {$sum:1} } }, 
+	{ $sort: {count:-1} },
+	{ $limit:10 }
+)
+{ "_id" : "c#", "count" : 463526 }
+{ "_id" : "java", "count" : 412189 }
+{ "_id" : "php", "count" : 392451 }
+{ "_id" : "javascript", "count" : 365623
+{ "_id" : "android", "count" : 320622 }
+{ "_id" : "jquery", "count" : 305614 }
+{ "_id" : "c++", "count" : 199280 }
+{ "_id" : "python", "count" : 184928 }
+{ "_id" : "iphone", "count" : 183573 }
+{ "_id" : "asp.net", "count" : 177334 }
+```
+10 najrzadszych tagów:
+```
+db.train.aggregate( 
+	{ $project: { "Tags":1 } }, 
+	{ $unwind: "$Tags" }, 
+	{ $group: { _id: "$Tags", count: {$sum:1} } }, 
+	{ $sort: {count:1} },
+	{ $limit:10 }
+)
+{ "_id" : "saddam-hussein", "count" : 1 }
+{ "_id" : "cftree", "count" : 1 }
+{ "_id" : "vc1", "count" : 1 }
+{ "_id" : "rc.exe", "count" : 1 }
+{ "_id" : "webgitnet", "count" : 1 }
+{ "_id" : "guacamole", "count" : 1 }
+{ "_id" : "ro.robotics", "count" : 1 }
+{ "_id" : "import-table", "count" : 1 }
+{ "_id" : "pm-utils", "count" : 1 }
+{ "_id" : "alsolanguage", "count" : 1 }
+```
 **Postgresql:**
 
 Zmiana formatu:
@@ -137,3 +175,4 @@ SELECT COUNT(tag), tag FROM tags GROUP BY tag ORDER BY COUNT(tag) ASC LIMIT 10;
 1 | running-costs
 1 | rapier-loom 
 ```
+
