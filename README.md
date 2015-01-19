@@ -125,7 +125,7 @@ SELECT COUNT(tag), tag FROM tags GROUP BY tag ORDER BY COUNT(tag) DESC LIMIT 10;
 ```
 10 najrzadszych tagów:
 ```
-SELECT COUNT(tag), tag FROM tags GROUP BY tag ORDER BY COUNT(tag) DESC LIMIT 10;
+SELECT COUNT(tag), tag FROM tags GROUP BY tag ORDER BY COUNT(tag) ASC LIMIT 10;
 1 | ott
 1 | captaris
 1 | commserver
