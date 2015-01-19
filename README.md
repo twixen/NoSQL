@@ -106,8 +106,7 @@ SELECT COUNT(id) FROM tags;
 ```
 Ilość unikalnych tagów:
 ```
-SELECT COUNT(unique_tags) FROM 
-(SELECT tag FROM tags GROUP BY tag) as unique_tags;
+SELECT COUNT(DISTINCT tag) FROM tags;
 42048
 ```
 10 najczęstszych tagów:
