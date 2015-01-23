@@ -176,3 +176,9 @@ SELECT COUNT(tag), tag FROM tags GROUP BY tag ORDER BY COUNT(tag) ASC LIMIT 10;
 1 | rapier-loom 
 ```
 
+Zadanie 2
+
+```
+mongoimport -c movies getglue_sample.json
+```
+Czas wykonania: 30 minut.
