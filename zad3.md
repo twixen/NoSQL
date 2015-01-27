@@ -1,5 +1,4 @@
 ### Zadanie 3 
-<<<<<<< HEAD
 Wyszukanie wszystkich anagramów w pliku word_list.txt
 
 Import pliku csv do bazy mongo.
