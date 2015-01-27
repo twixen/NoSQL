@@ -1,5 +1,6 @@
-### Zadanie 3 
-Wyszukanie wszystkich anagramów w pliku word_list.txt
+##### Zadanie 3 
+
+##Wyszukanie wszystkich anagramów w pliku word_list.txt
 
 Import pliku csv do bazy mongo.
 ```
@@ -20,6 +21,7 @@ var reduce = function(key, values) {
 };
 printjson(db.words.mapReduce(map, reduce, { out: "anagrams" }));
 ```
+Wynik wykonania skryptu.
 ```
 mongo anagrams.js
 {
