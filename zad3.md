@@ -7,18 +7,10 @@ Import pliku csv do bazy mongo.
 mongoimport --type csv -c words -f word --file word_list.txt
 ```
 Ilość elementów w bazie.
-=======
-Import do bazy.
-```
-mongoimport --type csv -c words -f word --file word_list.txt
-```
-Ilość elementów.
->>>>>>> 2023a0000bddd99f15b59ccbf01281b2043d25ec
 ```
 db.words.count()
 8199
 ```
-<<<<<<< HEAD
 Skrypt tworzący nową kolekcję z anagramami przy użyciu Map-Reduce
 ```
 var map = function() {
@@ -43,5 +35,3 @@ mongo anagrams.js
         "ok" : 1
 }
 ```
-=======
->>>>>>> 2023a0000bddd99f15b59ccbf01281b2043d25ec
