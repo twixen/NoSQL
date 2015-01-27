@@ -8,7 +8,7 @@ Polecenie wykonane w czasie 53s.
 
 **Mongo:**
 ```
-mongoimport --type csv --headerline -d train -c train CorrectTrain.csv
+mongoimport --type csv --headerline -c train CorrectTrain.csv
 ```
 Rozmiar bazy: 16GB. 
 Czas wykonania: 10 minut.
