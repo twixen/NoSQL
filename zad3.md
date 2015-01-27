@@ -1,6 +1,6 @@
-##### Zadanie 3 
+## Zadanie 3 
 
-##Wyszukanie wszystkich anagramów w pliku word_list.txt
+#####Wyszukanie wszystkich anagramów w pliku word_list.txt
 
 Import pliku csv do bazy mongo.
 ```
@@ -36,3 +36,6 @@ mongo anagrams.js
         "ok" : 1
 }
 ```
+
+#####Wyszukanie najczęstszych wystąpień słów na Wikipedii(baza z 16.01.2015)
+
