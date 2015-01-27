@@ -39,5 +39,16 @@ mongo anagrams.js
 Lista wszystkich anagramów:
 [link](/zad3/anagrams.txt)  
 
+Skrypt użyty do wygenerowania listy
+```
+db.anagrams.find().forEach( function (object) {
+	object.count = String(object.value).split(',').length;
+    db.anagrams.save(object);
+});
+db.anagrams.find({count:{$gt:1}}).sort({'count':-1}).forEach( function (object) {
+	print(object._id, '->', object.value);
+});
+```
+
 #####Wyszukanie najczęstszych wystąpień słów na Wikipedii (baza z 16.01.2015)
 
