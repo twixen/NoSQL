@@ -1,4 +1,4 @@
-###Zadanie 2
+###Zadanie 2 
 ```
 mongoimport -c movies getglue_sample.json
 ```

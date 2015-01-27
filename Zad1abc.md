@@ -1,4 +1,4 @@
-###Zadanie 1a
+###Zadanie 1a 
 
 Plik Train.csv poprawiłem poleceniem wywołanym w cygwin.
 ```
