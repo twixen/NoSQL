@@ -1,6 +1,6 @@
 ## Damian Soliński
 
-[Zadanie 1abc](/zad1abc.md)
+[Zadanie 1abc](/zad1abc.md) 
 [Zadanie 1d](/zad1d.md)
 [Zadanie 2](/zad2.md)
 [Zadanie 3](/zad3.md)
