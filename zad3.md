@@ -37,7 +37,7 @@ mongo anagrams.js
 }
 ```
 Lista wszystkich anagramów:
-[Zadanie 3](/zad3/anagrams.txt)  
+[link](/zad3/anagrams.txt)  
 
 #####Wyszukanie najczęstszych wystąpień słów na Wikipedii (baza z 16.01.2015)
 
