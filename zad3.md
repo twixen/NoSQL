@@ -52,3 +52,25 @@ db.anagrams.find({count:{$gt:1}}).sort({'count':-1}).forEach( function (object) 
 
 #####Wyszukanie najczęstszych wystąpień słów na Wikipedii (baza z 16.01.2015)
 
+Import do bazy.
+```
+mongoimport -c wiki wiki.json
+```
+
+Skrypt tworzący nową kolekcję z listą słow przy użyciu Map-Reduce
+```
+var map = function() {
+	var words = this.text.split(' ');
+	for (i in words) {
+		   emit(words[i], 1);
+	}
+ };
+var reduce = function(key, values) {
+    return values.length;
+};
+printjson(db.wiki.mapReduce(map, reduce, { out: "words" }));
+```
+Wyświetlenie najpopularniejszych słow.
+```
+db.words.find().sort({value:-1});
+```
