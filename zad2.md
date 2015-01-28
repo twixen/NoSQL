@@ -80,7 +80,7 @@ db.movies.aggregate(
 { "_id" : "darylrosemd", "count" : 22199 }
 { "_id" : "WHIESKIE", "count" : 21673 }
 ```
-10 Najczęściej dodanych do ulubionych filmów. Czas wykonania 3 minuty.
+10 najczęściej dodanych do ulubionych filmów. Czas wykonania 3 minuty.
 ```
 db.movies.aggregate(
 	{ $match: { modelName: "movies" } },
@@ -103,7 +103,7 @@ db.movies.aggregate(
 { "_id" : "Marvel's The Avengers", "count" : 652 }
 
 ```
-10 Najczęściej polubionych filmów Spielberga. Czas wykonania 3 minuty.
+10 najczęściej polubionych filmów Spielberga. Czas wykonania 3 minuty.
 ```
 db.movies.aggregate(
       { $match: {director: "steven spielberg"} },
