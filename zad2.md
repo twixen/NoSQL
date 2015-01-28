@@ -9,7 +9,7 @@ Ilość elementów.
 db.movies.count()
 19831300
 ```
-Czas wykonania 3m.
+20 najpopularniejszych seriali. Czas wykonania 3 minuty.
 ```
 db.movies.aggregate(
       { $match: { modelName: "tv_shows"  } },
@@ -18,7 +18,7 @@ db.movies.aggregate(
       { $limit: 20 }
 )
 ```
-Czas wykonania 3m.
+30 najaktywniejszych użytkowników. Czas wykonania 3 minuty.
 ```
 db.movies.aggregate(
     { $group: { _id: "$userId", count: { $sum: 1 } } },
@@ -26,7 +26,7 @@ db.movies.aggregate(
 	{ $limit: 30 }
 )
 ```
-Czas wykonania 3m.
+Najczęściej polubione filmy. Czas wykonania 3 minuty.
 ```
 db.movies.aggregate(
 	{ $match: { modelName: "movies" } },
@@ -36,7 +36,7 @@ db.movies.aggregate(
 	{ $limit: 10 }
 )
 ```
-Czas wykonania 3m.
+Najczęściej polubione filmy Spielberga. Czas wykonania 3 minuty.
 ```
 db.movies.aggregate(
       { $match: {director: "steven spielberg"} },
