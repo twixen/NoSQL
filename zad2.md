@@ -48,6 +48,7 @@ db.movies.aggregate(
 	{ $limit: 30 }
 )
 ```
+```
 { "_id" : "LukeWilliamss", "count" : 696782 }
 { "_id" : "demi_konti", "count" : 68137 }
 { "_id" : "bangwid", "count" : 59261 }
@@ -78,7 +79,6 @@ db.movies.aggregate(
 { "_id" : "SisterZilla", "count" : 22331 }
 { "_id" : "darylrosemd", "count" : 22199 }
 { "_id" : "WHIESKIE", "count" : 21673 }
-```
 ```
 10 Najczęściej dodanych do ulubionych filmów. Czas wykonania 3 minuty.
 ```
