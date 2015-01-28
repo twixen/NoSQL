@@ -5,7 +5,6 @@ db.movies.aggregate(
       { $sort: {count: -1} },
       { $limit: 20}
 )
-Time: 176243ms
 { "_id" : "The Big Bang Theory", "count" : 260686 }
 { "_id" : "Fringe", "count" : 187910 }
 { "_id" : "Nikita", "count" : 150683 }
@@ -33,7 +32,6 @@ db.movies.aggregate(
 	{ $sort : { count: -1 } },
 	{ $limit: 30 }
 )
-Time: 178422ms
 { "_id" : "LukeWilliamss", "count" : 696782 }
 { "_id" : "demi_konti", "count" : 68137 }
 { "_id" : "bangwid", "count" : 59261 }
@@ -65,8 +63,6 @@ Time: 178422ms
 { "_id" : "darylrosemd", "count" : 22199 }
 { "_id" : "WHIESKIE", "count" : 21673 }
 
-
-
 Podliczenie ulubionych filmów
 db.movies.aggregate(
 	{ $match: { modelName: "movies" } },
@@ -76,7 +72,6 @@ db.movies.aggregate(
 	{ $limit: 10 }
 )
 
-Time: 161424ms
 { "_id" : "Inception", "count" : 948 }
 { "_id" : "Fight Club", "count" : 937 }
 { "_id" : "The Hangover", "count" : 825 }
@@ -96,7 +91,7 @@ db.movies.aggregate(
       { $sort: {count: -1} },
       { $limit : 10}
     )
-Time: 165308ms
+	
 { "_id" : "Indiana Jones and the Raiders of the Lost Ark", "count" : 9871 }
 { "_id" : "Jurassic Park", "count" : 9553 }
 { "_id" : "Saving Private Ryan", "count" : 9087 }
