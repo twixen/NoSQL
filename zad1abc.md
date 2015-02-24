@@ -46,7 +46,6 @@ SELECT COUNT(id) FROM train;
 **Mongo:**
 Program napisany w JavaScript.
 ```
-var db = db.getSiblingDB('train');
 db.train.find().forEach( function (object) {
   if (!Array.isArray(object.Tags)){
     object.Tags = String(object.Tags).split(' ');
