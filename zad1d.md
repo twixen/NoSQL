@@ -1,5 +1,6 @@
 ###Zadanie 1d
 
+Stan Alabama
 ```
 mongoimport --type csv --headerline -c alabama alabama.csv
 ```
@@ -15,6 +16,7 @@ db.alabama.find().forEach( function (object) {
 db.alabama.ensureIndex({"loc" : "2dsphere"})
 ```
 
+W odległości do 1km.
 ```
 db.alabama.find({ loc: {$near: {
 	$geometry: {
@@ -25,29 +27,44 @@ db.alabama.find({ loc: {$near: {
 }}})
 ```
 
+W odległości od 3km do 5km.
+```
+db.alabama.find({ loc: {$near: {
+	$geometry: {
+		type: "Point", 
+		coordinates: [32.6629128,-85.0910479]
+	},
+    $minDistance: 3000,
+    $maxDistance: 5000
+}}})
+```
+
+Zawarte w obszarze.
 ```
 db.alabama.find({ loc: {$geoWithin: {$geometry: {
 	type: "Polygon",
     coordinates: [ 
 		[ 
-			[ 0, 0 ], 
-			[ 3, 6 ], 
-			[ 6, 1 ], 
-			[ 0, 0 ] 
+			[ 30, 85 ], 
+			[ 32, 90 ], 
+			[ 35, 85 ], 
+			[ 30, 85 ] 
 		] 
 	]
 }}}})
 ```
+
+Na lini.
 ```
 db.alabama.find({ loc: {$geoIntersects: {$geometry: {
 	type: "LineString",
     coordinates:
     [
-		[ 17.970, 54.130 ],
-        [ 18.779, 54.099 ],
-        [ 18.930, 53.740 ],
-        [ 16.689, 53.710 ],
-        [ 17.970, 54.130 ]
+		[ 32.6629128,-85.0910479 ],
+        [ 34.899246,-85.6158007 ],
+        [ 34.2692594,-85.4371803 ],
+        [ 32.4431991,-84.9199303 ],
+        [ 32.4765311,-84.9027084 ]
     ]
 }}}})
 ```
